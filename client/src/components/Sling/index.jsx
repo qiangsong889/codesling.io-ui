@@ -9,6 +9,7 @@ class SlingIndex extends Component {
    }
 
   componentWillMount() {
+    console.log('inside of componentWillMount of SlingIndex, doing a socket connection')
     this.socket = io('http://localhost:4155', {
       query: {
         roomId: this.props.location.pathname.slice(1)
@@ -20,10 +21,12 @@ class SlingIndex extends Component {
 
   render() {
     if (this.props.location.state) {
+      console.log('this is the props.location.state', this.props.location.state)
       return (
         <Sling socket={this.state.socket} challenge={this.props.location.state.challenge}/>
       );
     } else {
+      console.log('this is no props.lcation.state')
       return (
         <Sling socket={this.state.socket} challenge={{}}/>
       );

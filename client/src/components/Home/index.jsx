@@ -27,10 +27,11 @@ class Home extends Component {
 
   handleDuelClick = () => {
     this.randomSlingId();
+    let currentChallenge = this.state.selectedChallenge;
     this.props.history.push({
       pathname: `/${slingId}`,
       state: {
-        challenge: this.state.selectedChallenge
+        challenge: currentChallenge
       }
     });
   }
@@ -57,6 +58,7 @@ class Home extends Component {
             return (
             <option
               value={JSON.stringify(challenge)}
+              key={challenge.id}
             >
               {challenge.title}
             </option>)

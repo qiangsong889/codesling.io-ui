@@ -10,6 +10,7 @@ class Challenge extends Component {
    }
   
   componentDidMount() {
+    console.log('inside of challenge componentWillMount')
     this.fetchAllChallenges();
   }
 
@@ -24,7 +25,7 @@ class Challenge extends Component {
       <div>
         {this.state.challenges.map(challenge => {
           return (
-            <div>
+            <div key={challenge.id}>
               <li>content: {challenge.content} </li>
               <li>difficulty: {challenge.difficulty} </li>
             </div>
